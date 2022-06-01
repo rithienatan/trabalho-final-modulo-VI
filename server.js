@@ -26,7 +26,7 @@ const server = http.createServer((req, res) => {
     //---------- Routes ----------
     //----- initial route -----
     if(path === "/" && requestType === "GET")
-    { 
+    {
         fs.readFile("index.html")
         .then(webpage => {
             res.setHeader("Content-Type", "text/html");
@@ -36,10 +36,13 @@ const server = http.createServer((req, res) => {
     }//end if
 
     //----- bad route -----
-    res.setHeader("Content-Type", "text/html");
-    res.writeHead(403);
-    res.write("<html><body><h1>403 Forbidden</h1></body></html>");
-    res.end();
+    if(path === "/" && requestType !== "GET")
+    {
+        res.setHeader("Content-Type", "text/html");
+        res.writeHead(403);
+        res.write("<html><body><h1>403 Forbidden</h1></body></html>");
+        return res.end();
+    }//end if
 });
 
 //---------- Running Server ----------

@@ -1,5 +1,7 @@
 # Trabalho Final Modulo VI
 
+Current Version - 0.1.1
+
 Grupo 5 - Integrantes:
 
 - Rithie
@@ -18,3 +20,8 @@ PRINCIPAL (700XP)
 EXTRA (200XP)
 - Uma imagem deve ser carregada pelo frontend no momento do cadastro e salva em uma pasta do backend;
 - Esta imagem deve aparecer posteriormente no frontend (foto do item registrado ou algo do tipo).
+
+## Version Historic
+
+- 0.1.1 - Fix forbidden route for any request diferent than GET in root url
+- 0.1.0 - Init project

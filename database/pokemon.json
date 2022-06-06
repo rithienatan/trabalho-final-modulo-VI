@@ -1,22 +1,28 @@
-[
-    {
-        "id": 1,
-        "name": "Pikachu"
-    },
-    {
-        "id": 2,
-        "name": "Charmander"
-    },
-    {
-        "id": 3,
-        "name": "Lugia"
-    },
-    {
-        "id": 4,
-        "name": "Bulbasaur"
-    },
-    {
-        "id": 5,
-        "name": "Squirtle"
-    }
-]
+{
+    "pokemonLastId": 5,
+    "pokemons": [
+        {
+            "id": 1,
+            "name": "Pikachu",
+            "type": "Electric",
+            "color": "Yellow",
+            "number": "25"
+        },
+        {
+            "id": 2,
+            "name": "Charmander"
+        },
+        {
+            "id": 3,
+            "name": "Lugia"
+        },
+        {
+            "id": 4,
+            "name": "Bulbasaur"
+        },
+        {
+            "id": 5,
+            "name": "Squirtle"
+        }
+    ]
+}

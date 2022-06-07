@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Trabalho Final Modulo VI</title>
+        <link rel="stylesheet" href="estilo.css">
+        
+    </head>
+
+    <body>
+        <h1>Hello World!</h1>
+
+        <div class="all" id="teste">
+		
+            <form id="frmCadastro">
+                <label for="txtNome">Nome</label><br>
+                <input type="text" id="txtNome" placeholder="Nome" required><br>
+                
+                <label for="type">Tipo</label><br>
+                <select name="type" id="type" required>
+                    <option value="">Planta</option>
+                    <option value="">Mutante</option>
+                    <option value="">Besta Mítica</option>
+                    <option value="">Anfíbio</option>
+                    <option value="">Machine</option>
+                    <option value="">Alienígena</option>
+                    <option value="">Anjo</option>
+                    <option value="">Avatar</option>
+                    <option value="">Bulbo</option>
+                    <option value="">Crustáceo</option>
+                </select>
+               
+                <div>
+                    <label for="color">Cor</label>
+                    <input type="text" name="color" id="color" required>
+                </div>
+            
+                 <div>
+                    <label for="atributo">Atributo</label>
+                    <input type="text" name="atributo" id="atributo">
+                </div>
+                
+                <input type="submit" name="" id="btnAdicionar" value="Adicionar" >
+    
+                </form>
+            
+            
+            <form id="frmCadastro" class="middle">
+                
+    
+                <label for="list">Lista</label><br>
+                <select name="list" id="list">
+                    <option value="">Alraumon</option>
+                    <option value="">Bacomon</option>
+                    <option value="">Airdramon</option>
+                    <option value="">Betamon</option>
+                    <option value="">Blikmon</option>
+                    
+                
+                </select>
+                <input type="submit" name="" id="btnAdicionar" value="Deletar">
+    
+                
+                <input type="submit" name="" id="btnAdicionar" value="Listar">
+                    
+                
+                
+            </form>
+           
+           
+         <form id="frmCadastro" class="middle">
+                
+    
+                <div>
+                    <label for="list">Editar</label><br>
+                    <select name="list" id="list">
+                        <option value="">Alraumon</option>
+                        <option value="">Bacomon</option>
+                        <option value="">Airdramon</option>
+                        <option value="">Betamon</option>
+                        <option value="">Blikmon</option>
+                    
+                    
+                    </select>
+                </div>
+                <label for="txtNome">Nome</label><br>
+                <input type="text" id="txtNome" placeholder="Nome" ><br>
+                
+                <label for="type">Tipo</label><br>
+                <select name="type" id="type" required>
+                    <option value="">Planta</option>
+                    <option value="">Mutante</option>
+                    <option value="">Besta Mítica</option>
+                    <option value="">Anfíbio</option>
+                    <option value="">Machine</option>
+                    <option value="">Alienígena</option>
+                    <option value="">Anjo</option>
+                    <option value="">Avatar</option>
+                    <option value="">Bulbo</option>
+                    <option value="">Crustáceo</option>
+                </select>
+               
+                <div>
+                    <label for="color">Cor</label>
+                    <input type="text" name="color" id="color" >
+                </div>
+            
+                 <div>
+                    <label for="atributo">Atributo</label>
+                    <input type="text" name="atributo" id="atributo">
+                </div>
+
+                
+                
+                <input type="submit" name="" id="btnAdicionar" value="Editar">
+            </form>
+    
+            
+            
+        </div>
+    
+    <table>
+            <caption><h2>Tabela Digimons</h2></caption>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>Cor</th>
+                    <th>Atributo</th>
+                </tr>
+            </thead>
+            <tbody id="tbodyResultados"></tbody>
+            <tfoot></tfoot>
+        </table>
+        <script src="cliente.js"></script>
+    </body>
+</html>

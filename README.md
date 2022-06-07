@@ -1,6 +1,6 @@
 # Trabalho Final Modulo VI
 
-Current Version - 0.1.1
+Current Version - 1.0.0
 
 Grupo 5 - Integrantes:
 
@@ -25,3 +25,4 @@ EXTRA (200XP)
 
 - 0.1.1 - Fix forbidden route for any request diferent than GET in root url
 - 0.1.0 - Init project
+- 1.0.0 - Project release

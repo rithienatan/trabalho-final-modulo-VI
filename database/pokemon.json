@@ -6,23 +6,35 @@
             "name": "Pikachu",
             "type": "Electric",
             "color": "Yellow",
-            "number": "25"
+            "number": "025"
         },
         {
             "id": 2,
-            "name": "Charmander"
+            "name": "Charmander",
+            "type": "Fire",
+            "color": "Orange",
+            "number": "004"
         },
         {
             "id": 3,
-            "name": "Lugia"
+            "name": "Lugia",
+            "type": "Psychic",
+            "color": "White",
+            "number": "249"
         },
         {
             "id": 4,
-            "name": "Bulbasaur"
+            "name": "Bulbasaur",
+            "type": "Poison",
+            "color": "Green",
+            "number": "001"
         },
         {
             "id": 5,
-            "name": "Squirtle"
+            "name": "Squirtle",
+            "type": "Water",
+            "color": "Blue",
+            "number": "007"
         }
     ]
 }

@@ -6,7 +6,7 @@
  * 
  * @date 01-05-2022
  * 
- * @version 1.0.0
+ * @version 1.0.1
  */
 //---------- Imports ----------
 const fs = require("fs").promises;
@@ -103,7 +103,7 @@ function DeletePokemon(pokemon_id)
 
     let aux = pokemondb;
 
-    if(aux.pokemonsCount === 0)
+    if(aux.pokemonLastId === 0)
     { answer.message = "Has not any pokemon in database already!"; }
     else
     {
@@ -122,7 +122,7 @@ function DeletePokemon(pokemon_id)
             fs.writeFile("./database/pokemon.json", JSON.stringify(aux))
             .catch(err => {
                 answer.result = false;
-                answer.message = `Unable to delete pokemon ${pokemon.name}!`;
+                answer.message = `Unable to delete pokemon ${hasPokemon.name}!`;
                 console.log(err);
             });
         }

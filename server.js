@@ -12,14 +12,19 @@
 const http = require("http");
 const url = require("url");
 
+
 //---------- Custom Imports ----------
 const pokemonOperations = require("./server-modules/pokemon-db-assist");
+const onepieceOperations = require("./server-modules/onepiece-db-assist");
+const digimonOperations = require("./server-modules/digimon-db-assist");
+
 
 //---------- Server configs ---------
 const configs = {
     host: "localhost",
     port: 8000
 };
+
 
 //---------- Create Server ----------
 const server = http.createServer((req, res) => {
@@ -40,28 +45,86 @@ const server = http.createServer((req, res) => {
         return;
     }//end if
 
+
     //----- Digimon API Routes -----
-    /*
-    if(requestType === "GET")
+    if(path === "/createdigimon" && requestType === "POST")
     {
+        req.on('data', content => {
+            const digimon = JSON.parse(content);
 
+            const hasInsert = digimonOperations.InsertNewdigimon(digimon);
+
+            if(hasInsert === true)
+            {
+                res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" })
+                res.write(`digimon ${digimon.nome} has added!`);
+                res.end();
+                return;
+            }
+            else
+            {
+                res.writeHead(500, { "Content-Type": "text/html;charset=utf-8" })
+                res.write(`Unable to insert digimon ${digimon.nome} in database!`);
+                res.end();
+                return;
+            }//end if
+        });
     }//end if
 
-    if(requestType === "POST")
+    if(path === "/updatedigimon" && requestType === "PUT")
     {
+        req.on('data', content => {
+            const digimon = JSON.parse(content);
 
+            const hasModify = digimonOperations.UpdateDigimon(digimon);
+            
+            if(hasModify.result === true)
+            {
+                res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" })
+                res.write(hasModify.message);
+                res.end();
+                return;
+            }
+            else
+            {
+                res.writeHead(500, { "Content-Type": "text/html;charset=utf-8" })
+                res.write(hasModify.message);
+                res.end();
+                return;
+            }//end if
+        });
     }//end if
 
-    if(requestType === "PUT")
+    if(path === "/deletedigimon/" && requestType === "DELETE")
     {
+        queries = url.parse(req.url, true).query;
 
+        const hasDelete = digimonOperations.DeleteDigimon(parseInt(queries.id));
+
+        if(hasDelete.result === true)
+        {
+            res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" })
+            res.write(hasDelete.message);
+            res.end();
+            return;
+        }
+        else
+        {
+            res.writeHead(500, { "Content-Type": "text/html;charset=utf-8" })
+            res.write(hasDelete.message);
+            res.end();
+            return;
+        }//end if
     }//end if
 
-    if(requestType === "DELETE")
+    if(path === "/showdigimon" && requestType === "GET")
     {
-
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.write(JSON.stringify(digimonOperations.digimondb));
+        res.end();
+        return;
     }//end if
-    */
+
 
     //----- Pokemon API Routes -----
     if(path === "/createpokemon" && requestType === "POST")
@@ -142,7 +205,86 @@ const server = http.createServer((req, res) => {
         return;
     }//end if
 
+
     //----- OnePiece API Routes -----
+    if(path === "/createonepiece" && requestType === "POST")
+    {
+        req.on('data', content => {
+            const onepiece = JSON.parse(content);
+
+            const hasInsert = onepieceOperations.InsertNewOnePiece(onepiece);
+
+            if(hasInsert === true)
+            {
+                res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" })
+                res.write(`One Piece character ${onepiece.name} has added!`);
+                res.end();
+                return;
+            }
+            else
+            {
+                res.writeHead(500, { "Content-Type": "text/html;charset=utf-8" })
+                res.write(`Unable to insert One Piece character ${onepiece.name} in database!`);
+                res.end();
+                return;
+            }//end if
+        });
+    }//end if
+
+    if(path === "/updateonepiece" && requestType === "PUT")
+    {
+        req.on('data', content => {
+            const onepiece = JSON.parse(content);
+
+            const hasModify = onepieceOperations.UpdateOnePiece(onepiece);
+            
+            if(hasModify.result === true)
+            {
+                res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" })
+                res.write(hasModify.message);
+                res.end();
+                return;
+            }
+            else
+            {
+                res.writeHead(500, { "Content-Type": "text/html;charset=utf-8" })
+                res.write(hasModify.message);
+                res.end();
+                return;
+            }//end if
+        });
+    }//end if
+
+    if(path === "/deleteonepiece/" && requestType === "DELETE")
+    {
+        queries = url.parse(req.url, true).query;
+
+        const hasDelete = onepieceOperations.DeleteOnePiece(parseInt(queries.id));
+
+        if(hasDelete.result === true)
+        {
+            res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" })
+            res.write(hasDelete.message);
+            res.end();
+            return;
+        }
+        else
+        {
+            res.writeHead(500, { "Content-Type": "text/html;charset=utf-8" })
+            res.write(hasDelete.message);
+            res.end();
+            return;
+        }//end if
+    }//end if
+
+    if(path === "/showonepiece" && requestType === "GET")
+    {
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.write(JSON.stringify(onepieceOperations.onepiecedb));
+        res.end();
+        return;
+    }//end if
+
 
     //----- bad route -----
     if(path === "/" && requestType !== "GET")
